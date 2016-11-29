@@ -1,0 +1,10 @@
+version: '2'
+services:
+    fluentd:
+        image: fluent/fluentd:v0.12.29
+        ports:
+            - "24224:24224"
+        volumes:
+            - ./fluentd.conf:/fluentd/etc/fluentd.conf
+        environment:
+            - "FLUENTD_CONF=fluentd.conf"

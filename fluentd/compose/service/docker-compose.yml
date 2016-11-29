@@ -1,0 +1,11 @@
+version: '2'
+services:
+    web:
+        image: nginx:1.11-alpine
+        ports:
+            - "3000:80"
+        logging:
+            driver: fluentd
+            options:
+                fluentd-address: "localhost:24224"
+                tag: "docker.{{.Name}}"
